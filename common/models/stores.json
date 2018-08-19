@@ -1,0 +1,34 @@
+{
+  "name": "stores",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "company": {
+      "type": "string",
+      "id":"true"
+    },
+    "companyId": {
+      "type": "string",
+      "id": true
+    }
+
+  },
+  "validations": [],
+  "relations": {
+    "companystore": {
+      "type": "embedsMany",
+      "model": "companystore",
+      "foreignKey": "",
+      "through": "",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

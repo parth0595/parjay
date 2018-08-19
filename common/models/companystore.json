@@ -1,0 +1,26 @@
+{
+  "name": "companystore",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "storename": {
+      "type": "string"
+    },
+
+    "storecode": {
+      "type": "string",
+      "id": true
+    },
+    "details": {
+      "type": "object"
+
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,79 @@
+body {
+	/*padding-top:70px;*/
+	width: 100%;
+    height: 100%;
+	width: 100%;
+    height: 100%;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+a :hover{
+	color: #fff;
+}
+.navbar-default{
+	background-color: #696c76;
+}
+.navbar-default .navbar-brand {
+    color: #bfd43e;
+
+}
+
+.navbar-default .navbar-text {
+    color: #fff;
+}
+.submit-btn {
+	background-color: #b1dbff;
+	margin: 10px 0 10px 0;
+}
+
+.post {
+	padding: 10px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
+.odd {
+	background-color: #f2f9ff;
+
+}
+.even {
+	background-color: #eceff3;
+}
+
+.form-auth {
+	max-width: 330px;
+	padding: 5px;
+	margin: 0 auto;
+}/*
+.storeName{
+	max-width: 330px;
+	padding: 5px;
+	margin: 0 auto;
+}
+.availableStores{
+		max-width: 330px;
+  	padding: 5px;
+  	margin: 0 auto;
+}
+.mySlots{
+		max-width: 330px;
+  	padding: 5px;
+  	margin: 0 auto;
+} */
+
+/*@media all and (min-width: 960px) {
+    body{
+        font-size: 3vh;
+    }
+}
+
+@media all and (max-width: 959px) and (min-width: 600px) {
+    body{
+        font-size: 1vh;
+    }
+}
+
+@media all and (max-width: 599px) and (min-width: 320px) {
+    body{
+        font-size: 1vh;
+    } */

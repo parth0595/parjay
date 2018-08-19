@@ -1,0 +1,63 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongodb",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "startup": {
+    "dataSource": "db",
+    "public": false
+  },
+  "customers": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "stores": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "storeinfo": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "booking": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "companystore": {
+    "dataSource": "transient",
+    "public": false
+  }
+}

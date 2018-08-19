@@ -1,0 +1,29 @@
+{
+  "name": "booking",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "company": {
+      "type": "string"
+    },
+    "storename": {
+      "type": "string"
+    },
+    "query": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "slot": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

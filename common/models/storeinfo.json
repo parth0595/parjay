@@ -1,0 +1,38 @@
+{
+  "name": "storeinfo",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "companyId": {
+      "type": "string"
+    },
+    "storename": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object"
+    },
+    "storeCode": {
+      "type": "string",
+      "id": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "booking": {
+      "type": "embedsMany",
+      "model": "booking",
+      "foreignKey": "storeCode",
+      "through": "",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

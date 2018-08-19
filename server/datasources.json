@@ -1,0 +1,21 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "startup",
+    "password": "",
+    "name": "db",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
+  },
+  "mongodb": {
+    "url": "mongodb://iamadmin:system1234@ds111422.mlab.com:11422/parjay",
+    "name": "mongodb",
+    "connector": "mongodb"
+  }
+}

@@ -1,0 +1,263 @@
+<div class="clearfix">
+  <div>
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="controller.js">
+  <style>
+      * {box-sizing: border-box}
+
+      /* Set height of body and the document to 100% */
+      body, html {
+          height: 100%;
+          margin: 0;
+          font-family: Arial;
+      }
+
+      /* Style tab links */
+      .tablink {
+          background-color: #555;
+          color: white;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          font-size: 17px;
+          width: 25%;
+      }
+
+      .tablink:hover {
+          background-color: #777;
+      }
+
+      /* Style the tab content (and add height:100% for full page content) */
+      .tabcontent {
+          color: white;
+          display: none;
+          padding: 100px 20px;
+          height: 100%;
+      }
+
+      #Home {background-color: red;}
+      #NewBooking {background-color: green;}
+      #MyBookings {background-color: blue;}
+      #Profile {background-color: orange;}
+
+      @media all and (min-width: 960px) {
+    p{
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 959px) and (min-width: 600px) {
+    p{
+        font-size: 15px;
+    }
+     body{
+        font-size: 15px;
+    }
+}
+@media all and (max-width: 599px) and (min-width: 429px) {
+    p{
+        font-size: 12px;
+    }
+     body{
+        font-size: 12px;
+    }
+  }
+ @media all and (max-width: 428px) and (min-width: 270px) {
+    p{
+        font-size: 10px;
+        text-align:left;
+    }
+     body{
+        font-size: 10px;
+    }
+
+
+}
+.form-inline{
+	max-width: 330px;
+	padding: 5px;
+	margin: 0 auto;
+}
+html {
+  overflow:   scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+</style>
+<script>
+    function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+    <button class="tablink" onclick="openPage('Home', this, 'red')" id="tab1"><p>Home &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</p></button>
+    <button class="tablink" onclick="openPage('NewBooking', this, 'green')" id="defaultOpen" ><p>New Booking</p></button>
+    <button class="tablink" onclick="openPage('MyBookings', this, 'blue')" id="tab3" ><p>My Bookings</p></button>
+    <button class="tablink" onclick="openPage('Profile', this, 'orange')"  id="tab4"><p>Profile &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</p></button>
+  <div id="Home" class="tabcontent">
+    <!-- tab for home -->
+    <h3>Home</h3>
+    <p> this is the home  </p>
+  </div>
+
+  <div id="NewBooking" class="tabcontent">
+    <!-- Tab content for new bookings -->
+    <h3>New Booking</h3>
+    <p>
+    <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-2" style="font-size:130%">
+          <label> Enter the Company:</label>
+         </div>
+          <div class="col-sm-4">
+          <input type="text"  class="form-control" ng-model="company">
+          </div>
+          <div class="col-sm-4">
+          <input type="submit" class="btn btn-primary" ng-click="ShowStore();"/>
+          </div>
+    </div>
+        <br>
+     <div class="row">
+       <div class="col-sm-2">
+       </div>
+        <div class="col-sm-2" style="font-size:130%;">
+            <label> Select Your Nearest :</label>
+        </div>
+       <div class="col-sm-4" style="font-size:130%;">
+            <select class="form-control">
+              <option value=""  ng-model="storename" ng-repeat = "companystore in store[0].companystores">{{companystore.storename}}<span style="color:blue;">/{{companystore.storecode}}</span></option>
+              <!--<table>-->
+              <!--<th><th>STORENAME</th></th>-->
+              <!--<tr ng-repeat = "storeInfo in store[0].storeInfos">-->
+              <!--<td>{{storeInfo.storename}}</td>-->
+              <!--</tr>-->
+              <!--</table>-->
+              <!--<br>  <br>-->
+              <!--<option value="volvo">sector 50</option>-->
+              <!--<option value="saab">sector 41</option>-->
+              <!--<option value="opel">sector 56</option>-->
+              <!--<option value="audi">sector 78</option>-->
+            </select>
+
+       </div>
+       <div class="col-sm-4">
+         <button type="submit" class="btn btn-primary" ng-click="getStoreCode();"> GO on</button>
+       </div>
+     </div><br>
+    <div class="row">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-2" style="font-size:127%">
+        <label> Your Query:</label>
+      </div>
+      <div class="col-sm-4">
+        <!--<input type="textarea" class="form-control" ng-model="company">-->
+        <textarea rows="4" name="query" class="form-control">Enter text here...</textarea>
+
+      </div>
+      <div class="col-sm-4">
+
+      </div>
+    </div><br>
+        <div class="row" style="font-size:127%">
+           <div class="col-sm-2">
+                <label> Enter the Date:</label>
+           </div>
+             <div class="col-sm-2">
+                <input type="date" class="form-control">
+              </div>
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary" ng-click="mySlots=true">Find Slots</button>
+          </div>
+          <div class="col-sm-2">
+            <label> Enter the Time:</label>
+          </div>
+          <div class="col-sm-2">
+            <select class="form-control">
+              <option></option>
+            </select>
+          </div>
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary" ng-click="mySlots=true">Confrim Visit</button>
+           </div>
+        </div>
+    </p>
+  </div>
+
+  <div id="MyBookings" class="tabcontent">
+    <h3>My Bookings</h3>
+    <p>Get in touch, or swing by for a cup of coffee.</p>
+  </div>
+
+  <div id="Profile" class="tabcontent">
+    <!-- PROFILE HERE FOR SHOWING AND UPDATING-->
+    <h3>Profile</h3>
+    <div class="row">
+      <div  class="col-sm-2">
+      </div>
+      <div  class="col-sm-1">
+        <label style="font-size:130%;"> NAME :</label>
+      </div>
+      <div class="col-sm-3">
+        <input  class="form-control" type="text" value={{firstname}} style="color:black;" ng-disabled="!disable">
+      </div>
+      <div class="col-sm-3">
+        <input  class="form-control" type="text" value={{lastname}} style="color:black;" ng-disabled="!disable">
+      </div>
+      <div  class="col-sm-1">
+        <button ng-click="enable=true;" style="color:black;width=43%;"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+      </div>
+      <div  class="col-sm-1">
+        <button ng-click="enable=false;" style="color:black;width=43%;"><span class="glyphicon glyphicon-remove-circle"></span>Cancel</button>
+      </div>
+      <!--<div  class="col-sm-1">-->
+
+      <!--</div>-->
+    </div><br>
+
+    <div class="row">
+      <div  class="col-sm-2">
+      </div>
+      <div  class="col-sm-1">
+        <label style="font-size:130%;"> Email :</label>
+      </div>
+      <div class="col-sm-3">
+        <input  class="form-control" type="text" value={{email}} style="color:black;" ng-disabled="!enable">
+      </div>
+      <div  class="col-sm-6">
+      </div>
+    </div><br>
+    <div class="row">
+      <div  class="col-sm-2">
+      </div>
+      <div  class="col-sm-1">
+        <label style="font-size:130%;"> Mobile :</label>
+      </div>
+      <div class="col-sm-3">
+        <input  class="form-control" ng-disabled="!disable" type="text" value={{contactno}} style="color:black;">
+      </div>
+      <div  class="col-sm-6">
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+</div>
